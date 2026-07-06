@@ -6,7 +6,7 @@ metadata:
 spec:
   replicas: 1
   selector:
-    mactchLabels:
+    matchLabels:
       app: mongodb
   template:
     metadata:
@@ -25,7 +25,7 @@ spec:
           value: root
         - name: MONGO_INITDB_ROOT_PASSWORD
           value: root
-      volume:
+      volumes:
       - name: mongo-data
         PersistentVolumeClaim:
           claimName: mongodb-pvc
