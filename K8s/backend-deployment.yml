@@ -12,8 +12,8 @@ spec:
     metadata:
       name: backend-pod
       namespace: chat-app
-        labels:
-          app: backend
+      labels:
+        app: backend
     spec:
       containers:
       - name: chatapp-backend
