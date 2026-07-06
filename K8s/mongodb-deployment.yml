@@ -12,7 +12,7 @@ spec:
     metadata:
       name: mongodb-pod
       namespace: chat-app
-        labels:
+      labels:
           app: mongodb
     spec:
       containers:
