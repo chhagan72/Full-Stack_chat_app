@@ -10,8 +10,6 @@ spec:
       app: backend
   template:
     metadata:
-      name: backend-pod
-      namespace: chat-app
       labels:
         app: backend
     spec:
@@ -23,4 +21,15 @@ spec:
         env:
         - name: NODE_ENV
           value: production
-
+        - name: PORT
+          value: "5001"
+        # UNCOMMENT & FIX THESE IF YOUR APP NEEDS A DB CONNECTION:
+        # - name: MONGO_URI
+        #   value: "mongodb://your-db-service:27017/chat" 
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
