@@ -1,11 +1,24 @@
-apiVersion: v1
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: mongodb-pvc
+#   namespace: chat-apps
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 5Gi
+
 kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
   name: mongodb-pvc
-  namespace: chat-apps
+  namespace: nginx
 spec:
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
+  storageClassName: local-storage
