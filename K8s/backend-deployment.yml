@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
-  namespace: chat-app
+  namespace: chat-apps
 spec:
   replicas: 1
   selector:
@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       name: backend-pod
-      namespace: chat-app
+      namespace: chat-apps
       labels: 
         app: backend
     spec:
