@@ -1,15 +1,12 @@
-kind: PersistentVolume
 apiVersion: v1
+kind: PersistentVolume
 metadata:
   name: mongodb-pv
   namespace: chat-app
-  
 spec:
-  capacity:
-    storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
+  capacity:
+    storage: 5Gi
   hostPath:
-    path: /mnt/data
+    path: /data

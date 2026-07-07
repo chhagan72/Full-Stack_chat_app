@@ -10,26 +10,25 @@ spec:
       app: backend
   template:
     metadata:
-      labels:
+      name: backend-pod
+      namespace: chat-app
+      labels: 
         app: backend
     spec:
       containers:
       - name: chatapp-backend
-        image: chhaganp/chatapp-backend:latest
+        image: trainwithshubham/chatapp-backend:latest
         ports:
         - containerPort: 5001
         env:
         - name: NODE_ENV
           value: production
+        - name: MONGODB_URI
+          value: "mongodb://mongoadmin:secret@mongodb:27017/dbname?authSource=admin"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: chatapp-secrets
+              key: jwt 
         - name: PORT
           value: "5001"
-        # UNCOMMENT & FIX THESE IF YOUR APP NEEDS A DB CONNECTION:
-        # - name: MONGO_URI
-        #   value: "mongodb://your-db-service:27017/chat" 
-        resources:
-          limits:
-            cpu: "500m"
-            memory: "512Mi"
-          requests:
-            cpu: "250m"
-            memory: "256Mi"
