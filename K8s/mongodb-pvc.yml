@@ -14,7 +14,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: mongodb-pvc
-  namespace: nginx
+  namespace: chat-apps
 spec:
   accessModes:
   - ReadWriteOnce
